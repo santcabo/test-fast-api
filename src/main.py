@@ -11,17 +11,19 @@ app = FastAPI()
 def read_root():
     return {"message": "Hello from Mission Control Center (MCC)"}
 
+
 @app.get("/applications/")
 def read_applications():
     return {"applications": repo.get_applications()}
 
+
 @app.get("/application/{application_id}")
-def read_application(application_id: int):
-    return {"application_id": application_id}
+def read_application(application_id: str):
+    return {"application_updates": repo.get_application_updates(application_id)}
 
 
 @app.post("/application/")
 async def create_application(application: ApplicationConfiguration):
     app = ApplicationItem(application)
-    repo.add_application(app)
+    repo.create_application(app)
     return {"result:": "Success", "application_id": app.guid, "application_configuration": app.application_configuration}
