@@ -11,6 +11,9 @@ app = FastAPI()
 def read_root():
     return {"message": "Hello from Mission Control Center (MCC)"}
 
+@app.get("/applications/")
+def read_applications():
+    return {"applications": repo.get_applications()}
 
 @app.get("/application/{application_id}")
 def read_application(application_id: int):
