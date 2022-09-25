@@ -1,5 +1,6 @@
-from ast import List
+from typing import List
 from pydantic import BaseModel
+from .role import Role
 
 class TechnicalData(BaseModel):
-    roles: str
+    roles: List[Role]
