@@ -2,12 +2,12 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 
 from .models.metadata import Metadata
-# from .models.technical_data import TechnicalData
+from .models.technical_data import TechnicalData
 
 
 class Application(BaseModel):
     metadata: Metadata
-    technical_data: str
+    technical_data: TechnicalData
 
 
 app = FastAPI()
