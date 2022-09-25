@@ -6,3 +6,7 @@ src/models/__pycache__/metadata.cpython-310.pyc
 src/models/__pycache__/permission.cpython-310.pyc
 src/models/__pycache__/role.cpython-310.pyc
 src/models/__pycache__/technical_data.cpython-310.pyc
+src/models/__pycache__/application_configuration.cpython-310.pyc
+src/repository/__pycache__/__init__.cpython-310.pyc
+src/repository/__pycache__/application_item.cpython-310.pyc
+src/repository/__pycache__/application_repository.cpython-310.pyc

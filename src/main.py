@@ -1,8 +1,9 @@
 from fastapi import FastAPI
 
 from .models.application_configuration import ApplicationConfiguration
+from .repository.application_repository import ApplicationRepository, ApplicationItem	
 
-
+repo = ApplicationRepository()
 app = FastAPI()
 
 
@@ -18,4 +19,6 @@ def read_application(application_id: int):
 
 @app.post("/application/")
 async def create_application(application: ApplicationConfiguration):
-    return {"result:": "Success", "application": application}
+    app = ApplicationItem(application)
+    repo.add_application(app)
+    return {"result:": "Success", "application_id": app.guid, "application_configuration": app.application_configuration}
