@@ -1,13 +1,6 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
 
-from .models.metadata import Metadata
-from .models.technical_data import TechnicalData
-
-
-class Application(BaseModel):
-    metadata: Metadata
-    technical_data: TechnicalData
+from .models.application_configuration import ApplicationConfiguration
 
 
 app = FastAPI()
@@ -24,5 +17,5 @@ def read_application(application_id: int):
 
 
 @app.post("/application/")
-async def create_application(application: Application):
+async def create_application(application: ApplicationConfiguration):
     return {"result:": "Success", "application": application}
