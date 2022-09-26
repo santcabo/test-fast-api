@@ -10,6 +10,7 @@ packages = [{include = "test_fast_api"}]
 python = "^3.10"
 fastapi = "^0.85.0"
 uvicorn = {extras = ["standard"], version = "^0.18.3"}
+jsonpatch = "^1.32"
 
 
 [tool.poetry.group.dev.dependencies]
